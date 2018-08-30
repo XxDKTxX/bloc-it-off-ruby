@@ -5,6 +5,22 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
+  
+  config.action_mailer.default_url_options = { host: 'http://blocitoff-rails-logic615.c9users.io'}
+  config.action_mailer.raise_delivery_errors = true # to raise error if smtp has error on setup
+  config.action_mailer.default :charset => "utf-8"
+  
+  require 'net/smtp'
+    ActionMailer::Base.delivery_method = :smtp
+     config.action_mailer.perform_deliveries = true
+     config.action_mailer.default :charset => "utf-8"
+       ActionMailer::Base.smtp_settings = {
+       :address              => "smtp.gmail.com",
+       :port                 => 587,
+       :user_name            => "devintassie@gmail.com",
+       :password             => 'Deta2741',
+       :authentication       => "plain",
+       }
 
   # Do not eager load code on boot.
   config.eager_load = false
