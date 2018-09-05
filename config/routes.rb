@@ -2,6 +2,8 @@ Rails.application.routes.draw do
  
   get 'welcome/index' => 'welcome#index'
   
+  get'user_profile/show' => 'user_profile#show'
+  
   root 'welcome#index'
 
   devise_for :users, controllers: { confirmations: 'confirmations' }

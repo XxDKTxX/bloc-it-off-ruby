@@ -1,0 +1,27 @@
+ <%= form_for [@task] do |f| %>
+
+   
+   <div class="form-group">
+     <%= form_tag %>
+       <%= f.label :title %>
+       <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
+     
+     
+     <%= form_tag %>
+       <%= f.label :body %>
+       <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter post body" %>
+     
+   
+     <%= f.submit "Save", class: 'btn btn-success' %>
+   </div>
+
+ 
+  <div class="form-group">
+    <%= f.label :done, class: 'checkbox' do %>
+      <%= f.check_box :done %> done
+    <% end %>
+    
+  </div>
+<% end %>
+
+<% end %>
