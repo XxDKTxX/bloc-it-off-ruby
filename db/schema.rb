@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180830232659) do
+ActiveRecord::Schema.define(version: 20180906230933) do
+
+  create_table "items", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.boolean  "done",       default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "items", ["user_id"], name: "index_items_on_user_id"
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "title"
+    t.boolean  "done"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
  
+  resources :items
+  
   get 'users/show'
 
   get 'welcome/index' => 'welcome#index'
